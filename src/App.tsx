@@ -1,11 +1,20 @@
-import './App.css'
-import { Button } from './components/ui/button'
-function App() {
+import { RouterProvider } from 'react-router-dom';
 
+import { QueryProvider } from '@/app/providers/query-provider';
+import { router } from '@/app/router';
+
+import './App.css';
+
+/**
+ * Root Application Component
+ * Sets up providers and router
+ */
+const App = () => {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-    <Button>Click me</Button>
-  </div>  )
-}
+    <QueryProvider>
+      <RouterProvider router={router} />
+    </QueryProvider>
+  );
+};
 
-export default App
+export default App;
