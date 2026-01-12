@@ -56,6 +56,7 @@ const navItems: NavItem[] = [
     icon: BarChart3,
     items: [
       { title: "Overview", url: "/analytics" },
+      { title: "Orders", url: "/analytics/orders" },
       { title: "Reports", url: "/analytics/reports" },
     ],
   },
