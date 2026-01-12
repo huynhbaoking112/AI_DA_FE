@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getConnections } from '../api';
 
-import type { Connection } from '../types';
+import type { Connection, OrdersDataParams } from '../types';
 
 /**
  * Query key factory for analytics
@@ -46,7 +46,7 @@ export const analyticsKeys = {
       dateFrom,
       dateTo,
     ] as const,
-  data: (connectionId: string, params: Record<string, unknown>) =>
+  data: (connectionId: string, params: OrdersDataParams) =>
     [...analyticsKeys.all, 'data', connectionId, params] as const,
 };
 

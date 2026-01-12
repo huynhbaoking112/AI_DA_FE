@@ -7,7 +7,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import { getConnections } from '../api';
 
-import type { Connection } from '../types';
+import type { Connection, ProductsDataParams } from '../types';
 
 /**
  * Query key factory for products analytics
@@ -17,7 +17,7 @@ export const productsKeys = {
   connection: () => [...productsKeys.all, 'connection'] as const,
   summary: (connectionId: string) =>
     [...productsKeys.all, 'summary', connectionId] as const,
-  data: (connectionId: string, params: Record<string, unknown>) =>
+  data: (connectionId: string, params: ProductsDataParams) =>
     [...productsKeys.all, 'data', connectionId, params] as const,
 };
 
