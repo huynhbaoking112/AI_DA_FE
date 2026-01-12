@@ -10,3 +10,9 @@ export {
   getOrderItemsTop,
   getOrderItemsData,
 } from './order-items.api';
+
+// Customers API
+export { getCustomersSummary, getCustomersData } from './customers.api';
+
+// Products API
+export { getProductsSummary, getProductsData } from './products.api';

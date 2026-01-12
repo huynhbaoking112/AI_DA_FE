@@ -3,7 +3,12 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ProtectedRoute, PublicRoute } from '@/components/common';
 import { DashboardPlaceholder } from '@/components/common/dashboard-placeholder';
 import { LoginPage } from '@/features/auth';
-import { OrdersDashboardPage, OrderItemsDashboardPage } from '@/features/analytics';
+import {
+  OrdersDashboardPage,
+  OrderItemsDashboardPage,
+  CustomersDashboardPage,
+  ProductsDashboardPage,
+} from '@/features/analytics';
 import { MainLayout } from './layouts';
 
 /**
@@ -59,6 +64,14 @@ export const router = createBrowserRouter([
       {
         path: 'analytics/order-items',
         element: <OrderItemsDashboardPage />,
+      },
+      {
+        path: 'analytics/customers',
+        element: <CustomersDashboardPage />,
+      },
+      {
+        path: 'analytics/products',
+        element: <ProductsDashboardPage />,
       },
       {
         path: 'analytics/reports',

@@ -58,6 +58,8 @@ const navItems: NavItem[] = [
       { title: "Overview", url: "/analytics" },
       { title: "Orders", url: "/analytics/orders" },
       { title: "Order Items", url: "/analytics/order-items" },
+      { title: "Customers", url: "/analytics/customers" },
+      { title: "Products", url: "/analytics/products" },
       { title: "Reports", url: "/analytics/reports" },
     ],
   },

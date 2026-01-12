@@ -9,3 +9,13 @@ export { useOrderItemsConnection, orderItemsKeys } from './use-order-items-conne
 export { useOrderItemsSummary } from './use-order-items-summary';
 export { useOrderItemsTop } from './use-order-items-top';
 export { useOrderItemsData } from './use-order-items-data';
+
+// Customers hooks
+export { useCustomersConnection, customersKeys } from './use-customers-connection';
+export { useCustomersSummary } from './use-customers-summary';
+export { useCustomersData } from './use-customers-data';
+
+// Products hooks
+export { useProductsConnection, productsKeys } from './use-products-connection';
+export { useProductsSummary } from './use-products-summary';
+export { useProductsData } from './use-products-data';

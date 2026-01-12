@@ -10,3 +10,14 @@ export { OrderItemsSummaryCards } from './order-items-summary-cards';
 export { TopProductsChart } from './top-products-chart';
 export { OrderItemsTable } from './order-items-table';
 export { OrderItemsDashboardPage } from './order-items-dashboard-page';
+
+// Shared components
+export { SingleSummaryCard } from './single-summary-card';
+
+// Customers components
+export { CustomersTable } from './customers-table';
+export { CustomersDashboardPage } from './customers-dashboard-page';
+
+// Products components
+export { ProductsTable } from './products-table';
+export { ProductsDashboardPage } from './products-dashboard-page';

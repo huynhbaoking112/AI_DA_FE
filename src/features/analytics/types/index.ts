@@ -28,3 +28,21 @@ export type {
   OrderItemsDataResponse,
   OrderItemsDataParams,
 } from './order-items.types';
+
+// Customers types
+export type {
+  CustomersSummary,
+  CustomerData,
+  CustomerRow,
+  CustomersDataResponse,
+  CustomersDataParams,
+} from './customers.types';
+
+// Products types
+export type {
+  ProductsSummary,
+  ProductData,
+  ProductRow,
+  ProductsDataResponse,
+  ProductsDataParams,
+} from './products.types';
