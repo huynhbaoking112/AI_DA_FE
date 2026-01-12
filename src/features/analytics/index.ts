@@ -1,5 +1,5 @@
 // Components
-export { OrdersDashboardPage } from './components';
+export { OrdersDashboardPage, OrderItemsDashboardPage } from './components';
 
 // Hooks
 export {
@@ -9,6 +9,12 @@ export {
   useOrdersDistribution,
   useOrdersData,
   analyticsKeys,
+  // Order Items hooks
+  useOrderItemsConnection,
+  useOrderItemsSummary,
+  useOrderItemsTop,
+  useOrderItemsData,
+  orderItemsKeys,
 } from './hooks';
 
 // API
@@ -19,6 +25,10 @@ export {
   getOrdersTimeSeries,
   getOrdersDistribution,
   getOrdersData,
+  // Order Items API
+  getOrderItemsSummary,
+  getOrderItemsTop,
+  getOrderItemsData,
 } from './api';
 
 // Types
@@ -40,6 +50,15 @@ export type {
   OrdersDataParams,
   OrderStatus,
   Platform,
+  // Order Items types
+  OrderItemsSummary,
+  TopProductsMetric,
+  TopProductDataPoint,
+  TopProductsResponse,
+  OrderItemData,
+  OrderItemRow,
+  OrderItemsDataResponse,
+  OrderItemsDataParams,
 } from './types';
 
 // Utils

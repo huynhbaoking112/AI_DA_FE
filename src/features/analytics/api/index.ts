@@ -5,3 +5,8 @@ export {
   getOrdersDistribution,
   getOrdersData,
 } from './analytics.api';
+export {
+  getOrderItemsSummary,
+  getOrderItemsTop,
+  getOrderItemsData,
+} from './order-items.api';

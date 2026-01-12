@@ -17,3 +17,14 @@ export type {
   OrderStatus,
   Platform,
 } from './analytics.types';
+
+export type {
+  OrderItemsSummary,
+  TopProductsMetric,
+  TopProductDataPoint,
+  TopProductsResponse,
+  OrderItemData,
+  OrderItemRow,
+  OrderItemsDataResponse,
+  OrderItemsDataParams,
+} from './order-items.types';
