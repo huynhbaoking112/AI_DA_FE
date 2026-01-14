@@ -24,8 +24,8 @@ This implementation plan covers the Socket.IO client gateway infrastructure for 
     - Define ClientToServerEvents interface (empty for now)
     - _Requirements: 5.1, 5.2, 5.3, 5.4_
 
-- [ ] 4. Create socket store
-  - [ ] 4.1 Create `src/stores/use-socket-store.ts`
+- [x] 4. Create socket store
+  - [x] 4.1 Create `src/stores/use-socket-store.ts`
     - Define SocketStatus type: 'disconnected' | 'connecting' | 'connected' | 'error'
     - Define SocketState interface with status and error
     - Define SocketActions interface with setConnected, setDisconnected, setError, reset
