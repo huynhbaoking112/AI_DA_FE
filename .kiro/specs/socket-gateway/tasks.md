@@ -39,8 +39,8 @@ This implementation plan covers the Socket.IO client gateway infrastructure for 
     - Test reset returns to initial state
     - _Requirements: 4.3, 4.4, 4.5, 4.6_
 
-- [ ] 5. Create socket client
-  - [ ] 5.1 Create `src/lib/socket-client.ts`
+- [-] 5. Create socket client
+  - [x] 5.1 Create `src/lib/socket-client.ts`
     - Define TypedSocket type using Socket generic
     - Implement singleton socket variable
     - Implement getSocket() function
