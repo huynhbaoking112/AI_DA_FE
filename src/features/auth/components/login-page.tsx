@@ -1,256 +1,312 @@
+import { useMemo } from 'react';
+import type { LucideIcon } from 'lucide-react';
 import {
-  BarChart3,
-  TrendingUp,
-  PieChart,
   ArrowUpRight,
-  DollarSign,
-  Users,
-  ShoppingCart,
+  LineChart,
+  ShieldCheck,
+  Sparkles,
+  Wallet,
+  Zap,
 } from 'lucide-react';
-
+import { cn } from '@/lib/utils';
 import { LoginForm } from './login-form';
+
+type MetricCard = {
+  label: string;
+  value: string;
+  change: string;
+  icon: LucideIcon;
+  iconClassName: string;
+  chipClassName: string;
+  barClassName: string;
+  bars: string[];
+};
+
+type Highlight = {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+};
+
+const BrandMark = () => {
+  return (
+    <div className="flex items-center gap-3">
+      <div className="flex size-11 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-[0_18px_50px_-30px_rgba(15,23,42,0.7)]">
+        <Sparkles className="size-5" />
+      </div>
+      <div className="leading-tight">
+        <p className="text-xs uppercase tracking-[0.25em] text-slate-500">
+          FinanceAI
+        </p>
+        <p className="text-lg font-semibold text-slate-900">Predictive Finance</p>
+      </div>
+    </div>
+  );
+};
 
 /**
  * Login Page Component
- * Split-screen layout with hero section and login form
+ * Premium split-screen layout with hero section and login form
  */
 export const LoginPage = () => {
+  const metricCards = useMemo<MetricCard[]>(
+    () => [
+      {
+        label: 'Monthly revenue',
+        value: '$128,400',
+        change: '+14.2%',
+        icon: LineChart,
+        iconClassName: 'bg-emerald-500/15 text-emerald-700',
+        chipClassName: 'bg-emerald-500/10 text-emerald-700',
+        barClassName: 'bg-emerald-500/60',
+        bars: [
+          'h-[35%]',
+          'h-[55%]',
+          'h-[42%]',
+          'h-[70%]',
+          'h-[58%]',
+          'h-[82%]',
+          'h-[64%]',
+          'h-[90%]',
+        ],
+      },
+      {
+        label: 'Cash runway',
+        value: '7.3 months',
+        change: '+1.2',
+        icon: Wallet,
+        iconClassName: 'bg-amber-500/20 text-amber-700',
+        chipClassName: 'bg-amber-500/15 text-amber-700',
+        barClassName: 'bg-amber-500/60',
+        bars: [
+          'h-[48%]',
+          'h-[62%]',
+          'h-[55%]',
+          'h-[68%]',
+          'h-[72%]',
+          'h-[76%]',
+          'h-[84%]',
+          'h-[92%]',
+        ],
+      },
+      {
+        label: 'Risk alerts',
+        value: 'Low',
+        change: 'Stable',
+        icon: ShieldCheck,
+        iconClassName: 'bg-teal-500/20 text-teal-700',
+        chipClassName: 'bg-teal-500/15 text-teal-700',
+        barClassName: 'bg-teal-500/60',
+        bars: [
+          'h-[82%]',
+          'h-[74%]',
+          'h-[78%]',
+          'h-[86%]',
+          'h-[88%]',
+          'h-[92%]',
+          'h-[90%]',
+          'h-[94%]',
+        ],
+      },
+      {
+        label: 'Automation score',
+        value: '92%',
+        change: '+6.4%',
+        icon: Zap,
+        iconClassName: 'bg-slate-900/10 text-slate-900',
+        chipClassName: 'bg-slate-900/10 text-slate-900',
+        barClassName: 'bg-slate-900/60',
+        bars: [
+          'h-[40%]',
+          'h-[50%]',
+          'h-[62%]',
+          'h-[70%]',
+          'h-[78%]',
+          'h-[86%]',
+          'h-[92%]',
+          'h-[96%]',
+        ],
+      },
+    ],
+    []
+  );
+
+  const highlights = useMemo<Highlight[]>(
+    () => [
+      {
+        title: 'AI cash-flow forecast',
+        description: 'See 90-day projections with confidence bands.',
+        icon: Sparkles,
+      },
+      {
+        title: 'Smart anomaly detection',
+        description: 'Catch unusual spend before it hits the bottom line.',
+        icon: LineChart,
+      },
+      {
+        title: 'Board-ready reports',
+        description: 'Generate investor updates in under 60 seconds.',
+        icon: ShieldCheck,
+      },
+    ],
+    []
+  );
+
+  const partners = useMemo(
+    () => ['Shopify', 'Stripe', 'Notion', 'Figma', 'Lazada'],
+    []
+  );
+
   return (
-    <div className="flex min-h-screen">
-      {/* Left Side - Hero Section (Hidden on mobile) */}
-      <div className="hidden lg:flex lg:w-3/5 flex-col justify-between bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 p-12 text-white relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-indigo-500 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-500 rounded-full blur-3xl" />
-        </div>
-
-        {/* Grid Pattern Overlay */}
-        <div
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-                             linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600 shadow-lg shadow-indigo-500/30">
-              <BarChart3 className="h-6 w-6" />
-            </div>
-            <span className="text-xl font-semibold">FinanceAI</span>
-          </div>
-        </div>
-
-        {/* Main Content with Dashboard Preview */}
-        <div className="relative z-10 flex flex-col gap-8">
-          {/* Text Content */}
-          <div className="space-y-6 max-w-lg">
-            <h1 className="text-4xl font-bold leading-tight tracking-tight">
-              Make smarter business decisions with AI-powered analytics
-            </h1>
-            <p className="text-lg text-slate-300">
-              Unlock real-time insights into your eCommerce revenue, expenses,
-              and cash flow
-            </p>
-          </div>
-
-          {/* Dashboard Preview Cards */}
-          <div className="grid grid-cols-2 gap-4 max-w-2xl">
-            {/* Revenue Card */}
-            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 p-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-green-500/20">
-                    <DollarSign className="h-4 w-4 text-green-400" />
-                  </div>
-                  <span className="text-sm text-slate-300">Revenue</span>
-                </div>
-                <div className="flex items-center gap-1 text-green-400 text-xs">
-                  <ArrowUpRight className="h-3 w-3" />
-                  <span>+12.5%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold">$124,500</div>
-              <div className="h-12 flex items-end gap-1">
-                {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map(
-                  (height, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-gradient-to-t from-green-500/60 to-green-400/40 rounded-sm"
-                      style={{ height: `${height}%` }}
-                    />
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Orders Card */}
-            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 p-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-blue-500/20">
-                    <ShoppingCart className="h-4 w-4 text-blue-400" />
-                  </div>
-                  <span className="text-sm text-slate-300">Orders</span>
-                </div>
-                <div className="flex items-center gap-1 text-blue-400 text-xs">
-                  <ArrowUpRight className="h-3 w-3" />
-                  <span>+8.2%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold">1,284</div>
-              <div className="h-12 flex items-end gap-1">
-                {[30, 50, 70, 45, 80, 60, 75, 90, 55, 85, 65, 78].map(
-                  (height, i) => (
-                    <div
-                      key={i}
-                      className="flex-1 bg-gradient-to-t from-blue-500/60 to-blue-400/40 rounded-sm"
-                      style={{ height: `${height}%` }}
-                    />
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Customers Card */}
-            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 p-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-purple-500/20">
-                    <Users className="h-4 w-4 text-purple-400" />
-                  </div>
-                  <span className="text-sm text-slate-300">Customers</span>
-                </div>
-                <div className="flex items-center gap-1 text-purple-400 text-xs">
-                  <ArrowUpRight className="h-3 w-3" />
-                  <span>+24.1%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold">8,492</div>
-              {/* Mini pie chart representation */}
-              <div className="flex items-center gap-3">
-                <div className="relative h-12 w-12">
-                  <PieChart className="h-12 w-12 text-purple-400/60" />
-                </div>
-                <div className="flex-1 space-y-1 text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-purple-400" />
-                    <span className="text-slate-400">New 42%</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full bg-purple-600" />
-                    <span className="text-slate-400">Returning 58%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Growth Card */}
-            <div className="rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 p-4 space-y-3">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-orange-500/20">
-                    <TrendingUp className="h-4 w-4 text-orange-400" />
-                  </div>
-                  <span className="text-sm text-slate-300">Growth</span>
-                </div>
-                <div className="flex items-center gap-1 text-orange-400 text-xs">
-                  <ArrowUpRight className="h-3 w-3" />
-                  <span>+18.7%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold">+32.4%</div>
-              {/* Trend line */}
-              <div className="h-12 relative">
-                <svg
-                  className="w-full h-full"
-                  viewBox="0 0 100 40"
-                  preserveAspectRatio="none"
-                >
-                  <defs>
-                    <linearGradient
-                      id="gradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="0%"
-                      y2="100%"
-                    >
-                      <stop offset="0%" stopColor="rgb(251, 146, 60)" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="rgb(251, 146, 60)" stopOpacity="0" />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M0,35 Q10,30 20,28 T40,20 T60,15 T80,8 T100,5"
-                    fill="none"
-                    stroke="rgb(251, 146, 60)"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M0,35 Q10,30 20,28 T40,20 T60,15 T80,8 T100,5 L100,40 L0,40 Z"
-                    fill="url(#gradient)"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-
-          {/* Feature List */}
-          <ul className="flex flex-wrap gap-4 text-sm text-slate-300">
-            <li className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-              <span>Real-time dashboard</span>
-            </li>
-            <li className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-              <span>AI forecasting</span>
-            </li>
-            <li className="flex items-center gap-2 bg-white/5 rounded-full px-4 py-2">
-              <div className="h-1.5 w-1.5 rounded-full bg-indigo-400" />
-              <span>Expense tracking</span>
-            </li>
-          </ul>
-        </div>
-
-        {/* Trust Badge */}
-        <div className="relative z-10 space-y-4">
-          <p className="text-sm text-slate-400">
-            Trusted by 500+ eCommerce businesses
-          </p>
-          <div className="flex gap-6 items-center">
-            {/* Stylized company logos */}
-            <div className="h-8 px-4 rounded bg-white/10 flex items-center justify-center text-xs font-semibold text-slate-400">
-              SHOPIFY
-            </div>
-            <div className="h-8 px-4 rounded bg-white/10 flex items-center justify-center text-xs font-semibold text-slate-400">
-              AMAZON
-            </div>
-            <div className="h-8 px-4 rounded bg-white/10 flex items-center justify-center text-xs font-semibold text-slate-400">
-              LAZADA
-            </div>
-          </div>
-        </div>
+    <div className="relative min-h-screen overflow-hidden bg-[#f7f2ea] text-slate-900">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -left-24 -top-24 size-[520px] rounded-full bg-teal-300/35 blur-3xl" />
+        <div className="absolute -bottom-32 right-0 size-[520px] rounded-full bg-amber-200/45 blur-3xl" />
+        <div className="absolute right-[20%] top-24 size-[360px] rounded-full bg-emerald-200/35 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(#0f172a_1px,transparent_1px),linear-gradient(90deg,#0f172a_1px,transparent_1px)] [background-size:48px_48px]" />
       </div>
 
-      {/* Right Side - Login Form */}
-      <div className="flex w-full lg:w-2/5 flex-col items-center justify-center bg-white p-6 sm:p-12">
-        {/* Mobile Logo (Shown only on mobile) */}
-        <div className="mb-8 flex items-center gap-3 lg:hidden">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-            <BarChart3 className="h-6 w-6 text-white" />
-          </div>
-          <span className="text-xl font-semibold text-slate-900">
-            FinanceAI
-          </span>
-        </div>
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-12 lg:px-12">
+        <div className="grid w-full gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="flex flex-col justify-between gap-12">
+            <div className="space-y-10">
+              <div className="hidden lg:block">
+                <BrandMark />
+              </div>
 
-        {/* Login Form */}
-        <LoginForm />
+              <div className="space-y-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-700">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 py-2 text-xs font-medium uppercase tracking-[0.25em] text-slate-500 shadow-sm">
+                  FinanceAI Platform
+                </div>
+                <h1 className="text-4xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl lg:leading-[1.05]">
+                  <span className="font-serif text-slate-900">
+                    Predictive finance
+                  </span>{' '}
+                  for modern ecommerce teams.
+                </h1>
+                <p className="max-w-xl text-lg text-slate-600">
+                  Connect your storefronts, banks, and ads once. FinanceAI maps
+                  every signal into a live cash-flow command center in minutes.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 animate-in fade-in-0 slide-in-from-bottom-4 duration-700 delay-150">
+                {highlights.map((highlight) => {
+                  const Icon = highlight.icon;
+                  return (
+                    <div
+                      key={highlight.title}
+                      className="flex max-w-xs items-start gap-3 rounded-2xl border border-white/70 bg-white/70 p-4 shadow-[0_30px_80px_-60px_rgba(15,23,42,0.5)] backdrop-blur"
+                    >
+                      <div className="flex size-10 items-center justify-center rounded-xl bg-slate-900/10 text-slate-900">
+                        <Icon className="size-5" />
+                      </div>
+                      <div className="space-y-1">
+                        <p className="text-sm font-semibold text-slate-900">
+                          {highlight.title}
+                        </p>
+                        <p className="text-sm text-slate-500">
+                          {highlight.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 animate-in fade-in-0 slide-in-from-bottom-4 duration-700 delay-300">
+              {metricCards.map((card) => {
+                const Icon = card.icon;
+                return (
+                  <div
+                    key={card.label}
+                    className="rounded-2xl border border-white/70 bg-white/70 p-5 shadow-[0_20px_60px_-45px_rgba(15,23,42,0.5)] backdrop-blur"
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className={cn(
+                            'flex size-10 items-center justify-center rounded-xl',
+                            card.iconClassName
+                          )}
+                        >
+                          <Icon className="size-5" />
+                        </div>
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.2em] text-slate-500">
+                            {card.label}
+                          </p>
+                          <p className="text-xl font-semibold text-slate-900">
+                            {card.value}
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        className={cn(
+                          'inline-flex items-center gap-1 rounded-full px-3 py-1 text-xs font-semibold',
+                          card.chipClassName
+                        )}
+                      >
+                        <ArrowUpRight className="size-3" />
+                        {card.change}
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex h-12 items-end gap-1">
+                      {card.bars.map((heightClassName, index) => (
+                        <div
+                          key={`${card.label}-bar-${index}`}
+                          className={cn(
+                            'flex-1 rounded-sm',
+                            card.barClassName,
+                            heightClassName
+                          )}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500 animate-in fade-in-0 slide-in-from-bottom-4 duration-700 delay-500">
+              <span className="text-slate-400">Trusted by</span>
+              {partners.map((partner) => (
+                <span
+                  key={partner}
+                  className="rounded-full border border-white/70 bg-white/70 px-4 py-2 text-[11px] text-slate-600 shadow-sm"
+                >
+                  {partner}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <div className="w-full max-w-md rounded-3xl border border-white/70 bg-white/80 p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,0.5)] backdrop-blur">
+              <div className="mb-6 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/70 px-4 py-3 text-sm text-slate-600">
+                <div className="flex size-9 items-center justify-center rounded-xl bg-slate-900 text-white">
+                  <Sparkles className="size-4" />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-400">
+                    Secure Access
+                  </p>
+                  <p className="font-medium text-slate-900">
+                    Sign in to your FinanceAI workspace
+                  </p>
+                </div>
+              </div>
+
+              <div className="mb-6 lg:hidden">
+                <BrandMark />
+              </div>
+
+              <LoginForm />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
