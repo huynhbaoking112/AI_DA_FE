@@ -35,7 +35,7 @@ export const useLogin = () => {
         });
 
         // Navigate to dashboard after successful login
-        navigate('/', { replace: true });
+        navigate('/app', { replace: true });
       } catch {
         // If fetching user fails, clear the temporary token
         useAuthStore.setState({ token: null });

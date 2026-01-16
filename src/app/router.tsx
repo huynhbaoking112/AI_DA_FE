@@ -3,6 +3,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ProtectedRoute, PublicRoute } from '@/components/common';
 import { DashboardPlaceholder } from '@/components/common/dashboard-placeholder';
 import { LoginPage } from '@/features/auth';
+import { LandingPage } from '@/features/landing';
 import {
   OrdersDashboardPage,
   OrderItemsDashboardPage,
@@ -17,6 +18,14 @@ import { MainLayout } from './layouts';
  */
 export const router = createBrowserRouter([
   {
+    path: '/',
+    element: (
+      <PublicRoute>
+        <LandingPage />
+      </PublicRoute>
+    ),
+  },
+  {
     path: '/login',
     element: (
       <PublicRoute>
@@ -25,7 +34,7 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: '/',
+    path: '/app',
     element: (
       <ProtectedRoute>
         <MainLayout />
