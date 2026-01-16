@@ -158,8 +158,8 @@ export const LoginPage = () => {
   );
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#f7f2ea] text-slate-900">
-      <div className="pointer-events-none absolute inset-0">
+    <div className="relative min-h-screen bg-[#f7f2ea] text-slate-900">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -left-24 -top-24 size-[520px] rounded-full bg-teal-300/35 blur-3xl" />
         <div className="absolute -bottom-32 right-0 size-[520px] rounded-full bg-amber-200/45 blur-3xl" />
         <div className="absolute right-[20%] top-24 size-[360px] rounded-full bg-emerald-200/35 blur-3xl" />
@@ -283,7 +283,7 @@ export const LoginPage = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center lg:sticky lg:top-10 lg:self-start lg:items-start">
             <div className="w-full max-w-md rounded-3xl border border-white/70 bg-white/80 p-8 shadow-[0_40px_120px_-60px_rgba(15,23,42,0.5)] backdrop-blur">
               <div className="mb-6 flex items-center gap-3 rounded-2xl border border-white/60 bg-white/70 px-4 py-3 text-sm text-slate-600">
                 <div className="flex size-9 items-center justify-center rounded-xl bg-slate-900 text-white">
