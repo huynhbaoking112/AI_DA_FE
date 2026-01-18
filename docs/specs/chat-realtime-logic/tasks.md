@@ -8,21 +8,21 @@
     - References Requirements 1.1, 2.1, 3.1, 7.1, 8.1
     - Create `src/features/chat/types/chat.types.ts` and `src/features/chat/types/chat.realtime.ts`
 
-- [ ] 2. Implement REST API client for chat
-  - [ ] 2.1 Implement `src/features/chat/api/chat.api.ts` using `src/lib/api-client.ts`
+- [x] 2. Implement REST API client for chat
+  - [x] 2.1 Implement `src/features/chat/api/chat.api.ts` using `src/lib/api-client.ts`
     - References Requirements 2.1, 3.1, 4.1, 4.2
     - Export `listConversations`, `getConversationMessages`, `sendMessage`
-  - [ ] 2.2 Ensure API client uses correct base paths (`/chat/messages`, `/chat/conversations`, `/chat/conversations/{id}/messages`)
+  - [x] 2.2 Ensure API client uses correct base paths (`/chat/messages`, `/chat/conversations`, `/chat/conversations/{id}/messages`)
     - References Requirements 4.1, 4.2, 3.1
 
-- [ ] 3. Implement chat logic store (Zustand)
-  - [ ] 3.1 Implement `src/features/chat/stores/use-chat-store.ts` state + actions
+- [x] 3. Implement chat logic store (Zustand)
+  - [x] 3.1 Implement `src/features/chat/stores/use-chat-store.ts` state + actions
     - References Requirements 1.1, 5.1, 5.2, 6.1, 7.1, 8.1
     - Include `activeConversationId`, `sendLockByConversationId`, `sendLockForNullConversation`, `streamByConversationId`
-  - [ ] 3.2 Implement selectors/helpers for UI to consume (pure functions or store selectors)
+  - [x] 3.2 Implement selectors/helpers for UI to consume (pure functions or store selectors)
     - References Requirements 1.2, 5.2
     - Examples: `hasActiveConversation`, `isSendDisabled(conversationId|null)`, `getStreamState(conversationId)`
-  - [ ] 3.3 Ensure stream state transitions to `streaming` only on server `started`
+  - [x] 3.3 Ensure stream state transitions to `streaming` only on server `started`
     - References Requirements 5.3
 
 - [ ] 4. Implement TanStack Query hooks (cache + mutation)
