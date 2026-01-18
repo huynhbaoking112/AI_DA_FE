@@ -25,11 +25,11 @@
   - [x] 3.3 Ensure stream state transitions to `streaming` only on server `started`
     - References Requirements 5.3
 
-- [ ] 4. Implement TanStack Query hooks (cache + mutation)
-  - [ ] 4.1 Add query keys and query hooks in `src/features/chat/hooks/use-chat-queries.ts`
+- [x] 4. Implement TanStack Query hooks (cache + mutation)
+  - [x] 4.1 Add query keys and query hooks in `src/features/chat/hooks/use-chat-queries.ts`
     - References Requirements 2.1, 3.1, 3.3
     - Implement `conversationsKey`, `messagesKey`, `useConversationsQuery`, `useMessagesQuery`
-  - [ ] 4.2 Implement send mutation `useSendMessageMutation`
+  - [x] 4.2 Implement send mutation `useSendMessageMutation`
     - References Requirements 4.1, 4.2, 4.3, 4.4, 4.5, 5.1, 5.6
     - On send start: lock send for null or active conversation as appropriate
     - On REST success: set `activeConversationId` to returned id and transfer null lock if needed
