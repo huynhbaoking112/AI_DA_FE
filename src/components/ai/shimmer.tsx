@@ -2,7 +2,7 @@
 
 export const title = "React AI Shimmer";
 
-import { cn } from "@repo/shadcn-ui/lib/utils";
+import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import {
   type CSSProperties,

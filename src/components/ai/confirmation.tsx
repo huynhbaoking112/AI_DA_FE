@@ -2,9 +2,9 @@
 
 export const title = "React AI Confirmation";
 
-import { Alert, AlertDescription } from "@repo/shadcn-ui/components/ui/alert";
-import { Button } from "@repo/shadcn-ui/components/ui/button";
-import { cn } from "@repo/shadcn-ui/lib/utils";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import type { ToolUIPart } from "ai";
 import {
   type ComponentProps,

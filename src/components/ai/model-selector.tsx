@@ -10,14 +10,14 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@repo/shadcn-ui/components/ui/command";
+} from "@/components/ui/command";
 import {
   Dialog,
   DialogContent,
   DialogTitle,
   DialogTrigger,
-} from "@repo/shadcn-ui/components/ui/dialog";
-import { cn } from "@repo/shadcn-ui/lib/utils";
+} from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 import type { ComponentProps, ReactNode } from "react";
 
 export type ModelSelectorProps = ComponentProps<typeof Dialog>;

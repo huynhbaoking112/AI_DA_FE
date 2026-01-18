@@ -2,14 +2,14 @@
 
 export const title = "React AI Context";
 
-import { Button } from "@repo/shadcn-ui/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@repo/shadcn-ui/components/ui/hover-card";
-import { Progress } from "@repo/shadcn-ui/components/ui/progress";
-import { cn } from "@repo/shadcn-ui/lib/utils";
+} from "@/components/ui/hover-card";
+import { Progress } from "@/components/ui/progress";
+import { cn } from "@/lib/utils";
 import type { LanguageModelUsage } from "ai";
 import { type ComponentProps, createContext, useContext } from "react";
 import { getUsage } from "tokenlens";

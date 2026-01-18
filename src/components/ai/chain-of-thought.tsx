@@ -3,13 +3,13 @@
 export const title = "React AI Chain Of Thought";
 
 import { useControllableState } from "@radix-ui/react-use-controllable-state";
-import { Badge } from "@repo/shadcn-ui/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@repo/shadcn-ui/components/ui/collapsible";
-import { cn } from "@repo/shadcn-ui/lib/utils";
+} from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 import {
   BrainIcon,
   ChevronDownIcon,
